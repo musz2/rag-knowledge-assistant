@@ -1,0 +1,14 @@
+services:
+  rag-assistant:
+    build: .
+    image: rag-knowledge-assistant:local
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - rag_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  rag_data:
